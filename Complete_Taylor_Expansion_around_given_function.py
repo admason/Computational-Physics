@@ -4,6 +4,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+####### select variables
+h = float(input("Enter step size "))
+x0 = int(input("Enter Arguement at which the derivatives will be calculated "))
+nmax = int(input("Enter maximum iterations "))
+
+
 ########### Define the function (example given as 2sin(x)^2)
 
 def func(x):
@@ -21,7 +27,7 @@ def nDerivative(f,x,h,n):
     return t/h**n
 
 
-########## Taylor Series Code
+########## Taylor Polynomial Code
 def taylor(f, x , x0, nmax, h):
     # f: Function
     # x: argument
@@ -40,9 +46,9 @@ plt.ylim([-5,5])
 x_list = np.linspace(-5,5,101)
 plt.scatter(x_list,func(x_list))
 
-nmax = 15
-h = 0.05
+#nmax = 15
+#h = 0.05
 
-plt.plot(x_list, taylor(func,x_list,0,nmax,h),'red')
-plt.plot(x_list, taylor(func,x_list,1,nmax,h),'green')
-plt.plot(x_list, taylor(func,x_list,2,nmax,h),'blue')
+plt.plot(x_list, taylor(func,x_list,x0,nmax,h),'red')
+plt.plot(x_list, taylor(func,x_list,x0+1,nmax,h),'green')
+plt.plot(x_list, taylor(func,x_list,x0+2,nmax,h),'blue')
