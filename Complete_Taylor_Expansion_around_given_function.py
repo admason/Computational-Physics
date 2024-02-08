@@ -1,18 +1,13 @@
-#!/usr/bin/env python
-# coding: utf-8
 
 # ## Complete Taylor Expansion around a given function:
-
-# In[2]:
-
 
 import numpy as np
 import matplotlib.pyplot as plt
 
-########### Define the function
+########### Define the function (example given as 2sin(x)^2)
 
 def func(x):
-    return 2*np.sin(x)**2 + np.exp(-0.1*x**2)
+    return 2*np.sin(x)**2
 
 ######### For higher derivatives of nth degree
 def nDerivative(f,x,h,n):
@@ -47,17 +42,7 @@ plt.scatter(x_list,func(x_list))
 
 nmax = 15
 h = 0.05
-plt.plot(x_list, taylor(func,x_list,-3,nmax,h),'blue')
-plt.plot(x_list, taylor(func,x_list,-2,nmax,h),'red')
-
 
 plt.plot(x_list, taylor(func,x_list,0,nmax,h),'red')
-plt.plot(x_list, taylor(func,x_list,2,nmax,h),'green')
-plt.plot(x_list, taylor(func,x_list,3,nmax,h),'green')
-
-
-# In[ ]:
-
-
-
-
+plt.plot(x_list, taylor(func,x_list,1,nmax,h),'green')
+plt.plot(x_list, taylor(func,x_list,2,nmax,h),'blue')
